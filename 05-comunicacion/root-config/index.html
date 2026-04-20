@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Mi App Móvil — Single-SPA</title>
+
+  <!-- Polyfill para navegadores sin soporte nativo de Import Maps -->
+  <script async src="https://ga.jspm.io/npm:es-module-shims@1.10.1/dist/es-module-shims.js"></script>
+
+  <!-- Import Map: fuente de verdad para resolución de módulos -->
+  <script type="importmap">
+  {
+    "imports": {
+      "single-spa": "https://esm.sh/single-spa@6.0.1",
+      "react": "https://esm.sh/react@19.0.0",
+      "react/jsx-runtime": "https://esm.sh/react@19.0.0/jsx-runtime",
+      "react-dom/client": "https://esm.sh/react-dom@19.0.0/client?external=react",
+      "@mobile-app/mf-header": "http://localhost:9001/mf-header.js",
+      "@mobile-app/mf-navbar": "http://localhost:9002/mf-navbar.js",
+      "@mobile-app/mf-dashboard": "http://localhost:9003/mf-dashboard.js",
+      "@mobile-app/mf-productos-contratados": "http://localhost:9004/mf-productos-contratados.js",
+      "@mobile-app/mf-productos-contratar": "http://localhost:9005/mf-productos-contratar.js",
+      "@mobile-app/mf-ayuda": "http://localhost:9006/mf-ayuda.js"
+    }
+  }
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #e8e8e8;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    #app-container {
+      width: 100%;
+      max-width: 430px;
+      min-height: 100vh;
+      background: #f0f2f5;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 0 30px rgba(0,0,0,0.15);
+    }
+
+    #mf-header { position: sticky; top: 0; z-index: 100; }
+
+    #single-spa-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      padding-bottom: 80px;
+    }
+
+    #mf-navbar {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 430px;
+      z-index: 100;
+      box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+      border-top: 1px solid #e8e8e8;
+    }
+
+    #single-spa-content { overflow-x: hidden; }
+
+    @keyframes slide-in-right {
+      from { transform: translateX(100%); opacity: 0.3; }
+      to   { transform: translateX(0);    opacity: 1; }
+    }
+    @keyframes slide-in-left {
+      from { transform: translateX(-100%); opacity: 0.3; }
+      to   { transform: translateX(0);     opacity: 1; }
+    }
+    #single-spa-content.slide-right > * { animation: slide-in-right 0.3s ease-out; }
+    #single-spa-content.slide-left > * { animation: slide-in-left 0.3s ease-out; }
+
+    .spa-loading {
+      display: flex; align-items: center; justify-content: center;
+      height: 200px; color: #aaa; font-size: 14px;
+    }
+
+    @media (max-width: 430px) {
+      #app-container { max-width: 100%; box-shadow: none; }
+      #mf-navbar { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div id="app-container">
+    <div id="mf-header"></div>
+    <main id="single-spa-content">
+      <div class="spa-loading">Cargando...</div>
+    </main>
+    <div id="mf-navbar"></div>
+  </div>
+
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

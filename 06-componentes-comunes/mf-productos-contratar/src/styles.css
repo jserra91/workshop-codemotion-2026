@@ -1,0 +1,23 @@
+.productos-contratar { padding-bottom: 16px; }
+
+.page-title { font-size: 22px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+.page-subtitle { font-size: 14px; color: #888; margin-bottom: 20px; }
+
+.catalogo-list { display: flex; flex-direction: column; gap: 16px; }
+
+/* Card highlighted ya la gestiona el componente Card del ui-kit via prop */
+
+.badge-destacado {
+  position: absolute; top: 12px; right: 12px;
+}
+
+.catalogo-header {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;
+}
+
+.catalogo-icon { font-size: 36px; }
+
+.catalogo-nombre { font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+.catalogo-desc { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 12px; }
+
+.catalogo-features { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }

@@ -1,0 +1,569 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: #e8e8e8;
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* -- App Container (mobile viewport) -- */
+.app-container {
+  width: 100%;
+  max-width: 430px;
+  height: 100%;
+  background: #f0f2f5;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 0 30px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+/* -- Header -- */
+.app-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+}
+
+.header-info {
+  flex: 1;
+}
+
+.header-greeting {
+  font-size: 12px;
+  opacity: 0.85;
+  margin-bottom: 2px;
+}
+
+.header-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.header-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  font-size: 18px;
+}
+
+.header-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* -- Main Content -- */
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  padding-bottom: 80px;
+}
+
+/* -- Bottom Nav -- */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 6px 0 14px;
+  background: white;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  z-index: 100;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+  border-top: 1px solid #e8e8e8;
+}
+
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #aaa;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 6px 14px;
+  transition: color 0.2s;
+  gap: 4px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bottom-nav a.active {
+  color: #667eea;
+}
+
+.nav-icon {
+  font-size: 20px;
+}
+
+/* -- Dashboard -- */
+.dashboard {
+  padding-bottom: 16px;
+}
+
+.balance-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.balance-label {
+  font-size: 13px;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.balance-amount {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.balance-account {
+  font-size: 12px;
+  opacity: 0.7;
+  letter-spacing: 1px;
+  font-family: monospace;
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.quick-action {
+  background: white;
+  border: none;
+  border-radius: 14px;
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  font-size: 12px;
+  color: #333;
+  transition: transform 0.15s;
+  font-family: inherit;
+}
+
+.quick-action:active {
+  transform: scale(0.94);
+}
+
+.qa-icon {
+  font-size: 24px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.transactions {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  gap: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.tx-icon {
+  font-size: 22px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.tx-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.tx-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.tx-date {
+  font-size: 12px;
+  color: #999;
+  margin-top: 2px;
+}
+
+.tx-amount {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+}
+
+.tx-amount.positive {
+  color: #4caf50;
+}
+
+/* -- Productos Contratados -- */
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.productos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.producto-card {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s;
+}
+
+.producto-card:active {
+  transform: scale(0.98);
+}
+
+.producto-icon {
+  font-size: 28px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f2f5;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.producto-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.producto-nombre {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 2px;
+}
+
+.producto-numero {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+  font-family: monospace;
+}
+
+.producto-detalle {
+  font-size: 13px;
+  color: #555;
+}
+
+.producto-estado {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.estado-activa,
+.estado-activo,
+.estado-vigente {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.estado-en-curso {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+/* -- Cat�logo de Productos (Contratar) -- */
+.catalogo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.catalogo-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.catalogo-card.destacado {
+  border: 2px solid #667eea;
+}
+
+.badge-destacado {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 11px;
+  color: #667eea;
+  font-weight: 600;
+}
+
+.catalogo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.catalogo-icon {
+  font-size: 36px;
+}
+
+.catalogo-precio {
+  font-size: 13px;
+  font-weight: 600;
+  color: #667eea;
+  background: #f0f0ff;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.catalogo-nombre {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+}
+
+.catalogo-desc {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.catalogo-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.feature-tag {
+  font-size: 11px;
+  background: #f5f5f5;
+  color: #555;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.btn-contratar {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  font-family: inherit;
+}
+
+.btn-contratar:active {
+  opacity: 0.8;
+}
+
+/* -- Ayuda -- */
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.contact-card {
+  background: white;
+  border-radius: 14px;
+  padding: 16px 10px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.contact-card:active {
+  transform: scale(0.95);
+}
+
+.contact-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.contact-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+.contact-detail {
+  font-size: 11px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.faq-item {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.faq-item.open {
+  border-color: #667eea;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 16px;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  text-align: left;
+  gap: 12px;
+  font-family: inherit;
+}
+
+.faq-arrow {
+  font-size: 20px;
+  color: #667eea;
+  flex-shrink: 0;
+  font-weight: 300;
+}
+
+.faq-answer {
+  padding: 0 16px 16px;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* -- Responsive -- */
+@media (max-width: 430px) {
+  .app-container {
+    max-width: 100%;
+    box-shadow: none;
+  }
+  .bottom-nav {
+    max-width: 100%;
+  }
+}

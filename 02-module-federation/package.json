@@ -1,0 +1,14 @@
+{
+  "name": "my-project",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "install:all": "npm install --prefix root-config && npm install --prefix mf-productos-contratar && npm install --prefix mf-productos-contratados",
+    "build": "npm run build --prefix mf-productos-contratar && npm run build --prefix mf-productos-contratados && npm run build --prefix root-config",
+    "start": "npm run build && concurrently -n root-config,catalog,settings -c blue,green,yellow \"npx serve root-config/dist -l 9000 --no-clipboard\" \"npx serve mf-productos-contratar/dist -l 9001 --cors --no-clipboard\" \"npx serve mf-productos-contratados/dist -l 9002 --cors --no-clipboard\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "serve": "^14.2.0"
+  }
+}

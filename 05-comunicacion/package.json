@@ -1,0 +1,13 @@
+{
+  "name": "05-comunicacion",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix root-config && npm install --prefix mf-header && npm install --prefix mf-navbar && npm install --prefix mf-dashboard && npm install --prefix mf-productos-contratados && npm install --prefix mf-productos-contratar && npm install --prefix mf-ayuda",
+    "build": "npm run build --prefix mf-header && npm run build --prefix mf-navbar && npm run build --prefix mf-dashboard && npm run build --prefix mf-productos-contratados && npm run build --prefix mf-productos-contratar && npm run build --prefix mf-ayuda && npm run build --prefix root-config",
+    "start": "npm run build && concurrently -n root,header,navbar,dash,contratados,contratar,ayuda -c blue,white,white,green,yellow,magenta,cyan \"npx serve -s root-config/dist -l 9000 --no-etag --no-clipboard\" \"npx serve mf-header/dist -l 9001 --no-etag --cors --no-clipboard\" \"npx serve mf-navbar/dist -l 9002 --no-etag --cors --no-clipboard\" \"npx serve mf-dashboard/dist -l 9003 --no-etag --cors --no-clipboard\" \"npx serve mf-productos-contratados/dist -l 9004 --no-etag --cors --no-clipboard\" \"npx serve mf-productos-contratar/dist -l 9005 --no-etag --cors --no-clipboard\" \"npx serve mf-ayuda/dist -l 9006 --no-etag --cors --no-clipboard\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "serve": "^14.2.0"
+  }
+}

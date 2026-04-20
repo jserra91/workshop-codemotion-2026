@@ -1,0 +1,40 @@
+.ayuda { padding-bottom: 16px; }
+
+.page-title { font-size: 22px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+.page-subtitle { font-size: 14px; color: #888; margin-bottom: 20px; }
+
+.contact-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 24px; }
+
+.contact-card {
+  background: white; border-radius: 14px; padding: 16px 10px;
+  text-align: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  cursor: pointer; transition: transform 0.15s;
+}
+
+.contact-card:active { transform: scale(0.95); }
+.contact-icon { font-size: 28px; margin-bottom: 8px; }
+.contact-title { font-size: 13px; font-weight: 600; color: #333; }
+.contact-detail { font-size: 11px; color: #888; margin-top: 2px; }
+
+.section-title { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #333; }
+
+.faq-list { display: flex; flex-direction: column; gap: 8px; }
+
+.faq-item {
+  background: white; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid transparent; transition: border-color 0.2s;
+}
+
+.faq-item.open { border-color: #667eea; }
+
+.faq-question {
+  width: 100%; padding: 16px; background: none; border: none;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 14px; font-weight: 500; color: #333;
+  cursor: pointer; text-align: left; gap: 12px; font-family: inherit;
+}
+
+.faq-arrow { font-size: 20px; color: #667eea; flex-shrink: 0; font-weight: 300; }
+
+.faq-answer { padding: 0 16px 16px; font-size: 13px; color: #666; line-height: 1.6; }

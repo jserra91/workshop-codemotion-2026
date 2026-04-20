@@ -1,0 +1,58 @@
+.productos-contratar { padding-bottom: 16px; }
+
+.page-title { font-size: 22px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+.page-subtitle { font-size: 14px; color: #888; margin-bottom: 20px; }
+
+.catalogo-list { display: flex; flex-direction: column; gap: 16px; }
+
+.catalogo-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.catalogo-card.destacado { border: 2px solid #667eea; }
+
+.badge-destacado {
+  position: absolute; top: 12px; right: 12px;
+  font-size: 11px; color: #667eea; font-weight: 600;
+}
+
+.catalogo-header {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;
+}
+
+.catalogo-icon { font-size: 36px; }
+
+.catalogo-precio {
+  font-size: 13px; font-weight: 600; color: #667eea;
+  background: #f0f0ff; padding: 4px 12px; border-radius: 20px;
+}
+
+.catalogo-nombre { font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+.catalogo-desc { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 12px; }
+
+.catalogo-features { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+
+.feature-tag {
+  font-size: 11px; background: #f5f5f5; color: #555;
+  padding: 4px 10px; border-radius: 12px;
+}
+
+.btn-contratar {
+  width: 100%; padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white; border: none; border-radius: 12px;
+  font-size: 15px; font-weight: 600; cursor: pointer;
+  transition: opacity 0.2s, background 0.2s; font-family: inherit;
+}
+
+.btn-contratar:active { opacity: 0.8; }
+
+/* Estado: producto ya añadido */
+.btn-contratar--seleccionado {
+  background: linear-gradient(135deg, #43a047 0%, #2e7d32 100%);
+}

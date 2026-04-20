@@ -1,0 +1,21 @@
+:root {
+  --color-primary: #667eea;
+  --color-primary-strong: #764ba2;
+  --color-text-primary: #1a1a1a;
+  --color-text-muted: #888888;
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --radius-card: 16px;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}

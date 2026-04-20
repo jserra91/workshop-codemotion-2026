@@ -1,0 +1,19 @@
+{
+  "name": "@mobile-app/mf-header",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.0",
+    "vite": "^6.0.0",
+    "vite-plugin-css-injected-by-js": "4.0.1"
+  },
+  "dependencies": {
+    "06-componentes-comunes": "file:..",
+    "single-spa-react": "^6.0.0"
+  }
+}
